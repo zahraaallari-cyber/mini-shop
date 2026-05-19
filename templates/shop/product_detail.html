@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static 'shop/style.css' %}">
+</head>
+<body>
+<h1>🛍️ Mini Shop</h1>
+<a class="back" href="{% url 'home' %}">← Back</a>
+<div class="detail">
+    {% if product.image %}
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% else %}
+    <img src="https://via.placeholder.com/600x300?text=No+Image">
+    {% endif %}
+    <h2>{{ product.name }}</h2>
+    <p style="margin-top:10px; color:gray;">{{ product.description }}</p>
+    <p class="price" style="margin-top:15px;">{{ product.price }} $</p>
+    <a class="buy-btn" href="#">🛒 Buy Now</a>
+</div>
+</body>
+</html>
